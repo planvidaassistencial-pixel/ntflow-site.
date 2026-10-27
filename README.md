@@ -13,7 +13,7 @@ Página estática oficial do projeto de vendas do NT Flow.
 
 Edite `index.html` e mantenha os caminhos relativos dos arquivos em `assets/`. A página pode ser aberta diretamente no navegador. Para servir por HTTP, execute `npx --yes serve .` nesta pasta.
 
-Os três botões comerciais usam o WhatsApp **+55 22 98100-0266**, com mensagem inicial preenchida. O menu móvel funciona com JavaScript; o conteúdo e os links continuam disponíveis sem ele.
+Os quatro links comerciais usam o WhatsApp **+55 22 99226-8946**, com mensagem inicial preenchida. O menu móvel funciona com JavaScript; o conteúdo e os links continuam disponíveis sem ele.
 
 ## Publicação
 
