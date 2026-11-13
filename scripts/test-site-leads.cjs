@@ -3,9 +3,12 @@ const fs = require("node:fs");
 const vm = require("node:vm");
 
 const script = fs.readFileSync("assets/lead-capture.js", "utf8");
+const html = fs.readFileSync("index.html", "utf8");
+assert.equal((html.match(/data-contact="whatsapp"/g) || []).length, 4, "Each commercial CTA must use routing by profile");
+assert.equal((html.match(/href="https:\/\/wa\.me\//g) || []).length, 0, "Static fallback cannot send Luan leads to Nathan");
 
 function render(search, sessionStorage = new Map()) {
-  const links = Array.from({ length: 2 }, () => ({
+  const links = Array.from({ length: 4 }, () => ({
     href: "https://wa.me/5522992268946",
     target: "_blank",
     rel: "noopener noreferrer",
@@ -71,13 +74,15 @@ function render(search, sessionStorage = new Map()) {
   assert.match(decodeURIComponent(account.links[0].href), /Instagram do NT Flow/);
 
   const luan = render("?ref=luan");
-  assert.ok(luan.links.every(link => link.href === "#cadastro"));
-  assert.equal(luan.phone.textContent, "um consultor");
+  assert.ok(luan.links.every(link => link.href.startsWith("https://wa.me/5522981208565?")));
+  assert.match(decodeURIComponent(luan.links[0].href), /Instagram do Luan/);
+  assert.equal(luan.phone.textContent, "(22) 98120-8565");
 
-  const influencer = render("?ref=influenciador-maria-exemplo");
+  const influencer = render("?ref=influenciador-wromitoo");
   await influencer.form.submit({ preventDefault() {} });
-  assert.equal(JSON.parse(influencer.requests[0].options.body).ref, "influenciador-maria-exemplo");
-  assert.match(decodeURIComponent(influencer.links[0].href), /maria exemplo/);
+  assert.equal(JSON.parse(influencer.requests[0].options.body).ref, "influenciador-wromitoo");
+  assert.match(decodeURIComponent(influencer.links[0].href), /wromitoo/);
+  assert.ok(influencer.links.every(link => link.href.startsWith("https://wa.me/5522992268946?")));
 
   const session = new Map();
   render("?ref=nathan", session);
