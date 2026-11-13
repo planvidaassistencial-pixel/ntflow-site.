@@ -19,25 +19,25 @@ Sem parâmetro de origem, os links comerciais usam o WhatsApp **+55 22 99226-894
 
 Não há etapa de compilação. Publique a raiz deste repositório em uma hospedagem estática. Para GitHub Pages: em **Settings → Pages**, selecione **Deploy from a branch**, branch **main** e pasta **/(root)**. O endereço público deve ser confirmado após a publicação.
 
-Este envio versiona a página existente. Não configura hospedagem nem integrações.
+A hospedagem oficial usa Cloudflare Pages no projeto `ntflow-site` conectado à branch `main`; o pré-cadastro envia dados ao backend do projeto NT Flow existente.
 
 ## Verificação desta versão
 
 - Textos em UTF-8 e idioma `pt-BR`.
 - Imagens locais e links internos conferidos.
-- Três chamadas para o WhatsApp conferidas.
+- Quatro chamadas comerciais roteadas ao WhatsApp do perfil identificado.
 - Sintaxe do JavaScript conferida.
 
 ## Pré-cadastro e origem dos links
 
 A página principal continua única. Atribuição inicial por parâmetro `ref`:
 
-- Luan: `https://ntflow-site.pages.dev/?ref=luan` (CTA de WhatsApp aguardando número confirmado).
+- Luan: `https://ntflow-site.pages.dev/?ref=luan` → WhatsApp +55 22 98120-8565.
 - Nathan: `https://ntflow-site.pages.dev/?ref=nathan` → WhatsApp +55 22 99226-8946.
 - NT Flow: `https://ntflow-site.pages.dev/?ref=ntflow` → o mesmo WhatsApp do Nathan.
-- Primeiro influenciador: `https://ntflow-site.pages.dev/?ref=influenciador-01` → WhatsApp oficial; o código 01 aparece no detalhe da origem no CRM. Associe esse código ao @ correto antes de distribuir o link.
+- @wromitoo: `https://ntflow-site.pages.dev/?ref=influenciador-wromitoo` → WhatsApp oficial; o identificador `wromitoo` aparece no detalhe da origem no CRM.
 - Influenciadores futuros: `https://ntflow-site.pages.dev/?ref=influenciador-<slug>` → um código único por perfil.
 
 O campo `source` e o detalhe da origem ficam no CRM. Os visitantes que completarem nome, WhatsApp e e-mail com autorização de contato entram em Administração → CRM · Leads com status Novo. O backend de captura roda no projeto Lovable existente; o site estático envia apenas os dados declarados pelo visitante. Se o número já constar no CRM, o registro anterior não é substituído e sua origem original é preservada.
 
-**Publicação:** a mudança depende da migração no banco e da publicação do backend. Não distribuir a URL do Luan até confirmar o número dele e preencher a configuração do site. A página não envia esse contato para o número do Nathan quando `ref=luan`.
+**Publicação:** o backend e a migração já estão no projeto Lovable existente. Integrar e validar esta página no Cloudflare Pages antes de divulgar os links nas bios. Cada botão comercial recebe seu número a partir da origem; sem JavaScript, nenhum botão exibe um número fixo que possa direcionar o contato ao perfil errado.
