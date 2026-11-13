@@ -16,3 +16,4 @@ jobs:
       - run: node --check assets/lead-capture.js
       - run: node scripts/test-site-leads.cjs
       - run: node scripts/smoke-live-leads.cjs
+      - run: node scripts/smoke-live-site.cjs
