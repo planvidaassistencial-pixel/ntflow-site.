@@ -3,7 +3,7 @@
 
   const SITE_API = "https://home-fin-nest.lovable.app/";
   const DEFAULT_WHATSAPP = "5522992268946";
-  const PHONE_BY_REF = { nathan: DEFAULT_WHATSAPP, ntflow: DEFAULT_WHATSAPP };
+  const PHONE_BY_REF = { luan: "5522981208565", nathan: DEFAULT_WHATSAPP, ntflow: DEFAULT_WHATSAPP };
   const STORAGE_KEY = "ntflow:site-ref:v1";
   const params = new URLSearchParams(location.search);
 
@@ -29,7 +29,7 @@
 
   const ref = trackedRef();
   try { sessionStorage.setItem(STORAGE_KEY, ref); } catch {}
-  const phone = ref === "luan" ? null : (PHONE_BY_REF[ref] || DEFAULT_WHATSAPP);
+  const phone = PHONE_BY_REF[ref] || DEFAULT_WHATSAPP;
   const originLabel = ref === "luan" ? "Instagram do Luan"
     : ref === "nathan" ? "Instagram do Nathan"
     : ref === "ntflow" ? "Instagram do NT Flow"
@@ -38,18 +38,12 @@
   const message = "Olá! Vim pelo " + originLabel + " e quero conhecer o NT Flow.";
 
   document.querySelectorAll('[data-contact="whatsapp"]').forEach((link) => {
-    if (!phone) {
-      link.href = "#cadastro";
-      link.removeAttribute("target");
-      link.removeAttribute("rel");
-      return;
-    }
     link.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
     link.target = "_blank";
     link.rel = "noopener noreferrer";
   });
   const visiblePhone = document.getElementById("contact-phone");
-  if (visiblePhone && !phone) visiblePhone.textContent = "um consultor";
+  if (visiblePhone) visiblePhone.textContent = ref === "luan" ? "(22) 98120-8565" : "(22) 99226-8946";
 
   const form = document.getElementById("lead-form");
   if (!form) return;
