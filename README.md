@@ -35,7 +35,8 @@ A página principal continua única. Atribuição inicial por parâmetro `ref`:
 - Luan: `https://ntflow-site.pages.dev/?ref=luan` (CTA de WhatsApp aguardando número confirmado).
 - Nathan: `https://ntflow-site.pages.dev/?ref=nathan` → WhatsApp +55 22 99226-8946.
 - NT Flow: `https://ntflow-site.pages.dev/?ref=ntflow` → o mesmo WhatsApp do Nathan.
-- Influenciador: `https://ntflow-site.pages.dev/?ref=influenciador-<slug>` → WhatsApp oficial; informe o nome/@ antes de divulgar o primeiro link.
+- Primeiro influenciador: `https://ntflow-site.pages.dev/?ref=influenciador-01` → WhatsApp oficial; o código 01 aparece no detalhe da origem no CRM. Associe esse código ao @ correto antes de distribuir o link.
+- Influenciadores futuros: `https://ntflow-site.pages.dev/?ref=influenciador-<slug>` → um código único por perfil.
 
 O campo `source` e o detalhe da origem ficam no CRM. Os visitantes que completarem nome, WhatsApp e e-mail com autorização de contato entram em Administração → CRM · Leads com status Novo. O backend de captura roda no projeto Lovable existente; o site estático envia apenas os dados declarados pelo visitante. Se o número já constar no CRM, o registro anterior não é substituído e sua origem original é preservada.
 
